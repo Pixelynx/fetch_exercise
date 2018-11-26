@@ -3,30 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let button = document.querySelector('#button');
     let body = document.querySelector('body');
 
-    //  const ranImg = () => {
-    //     xml.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
-    //     xml.send();
-    // }
-
-     button.addEventListener('click', (fetchData) => {
-            ranImg();
-sole
-    // let xml = new XMLHttpRequest();
-
-    const fetchData = () => {
-      fetch('https://dog.ceo/api/breeds/image/random')
-        .then(response => {
-          return response.json();
-        })
+     const ranImg = (response) => {
+       let randomImg = response.message;
+       let img = document.createElement('img');
+       img.src = randomImg;
+       body.appendChild(img);
     }
 
-    //
-    const getImg = (img) => {
-      let imgNode = document.createElement('img');
-      imgNode.src = img;
-      body.appendChild(imgNode);
-
-    }
+     button.addEventListener('click', () => {
+        fetch('https://dog.ceo/api/breeds/image/random')
+          .then(response => {
+            return response.json();
+          }).then(res => {
+            return removeAndGet(res);
+          })
+      });
 
     const removeImg = () => {
       let img = document.querySelector('img');
@@ -37,19 +28,9 @@ sole
 
     const removeAndGet = (img) => {
       removeImg();
-      getImg(img);
+      ranImg(img);
     }
 
-     xml.onreadystatechange = function() {
-        if(xml.readyState ===  4) {
-            if(xml.status === 200) {
-                let ran_Img = JSON.parse(xml.response)['message'];
-                removeAndGet(ran_Img);
-            } else {
-              console.log('Whoops!');
-            }
-        }
-    };
 });
 
 // https://api.thecatapi.com/v1/images/:image_id
