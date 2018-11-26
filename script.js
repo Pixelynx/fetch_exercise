@@ -3,16 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let button = document.querySelector('#button');
     let body = document.querySelector('body');
 
-     const ranImg = () => {
-        xml.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
-        xml.send();
-    }
+    //  const ranImg = () => {
+    //     xml.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
+    //     xml.send();
+    // }
 
-     button.addEventListener('click', () => {
+     button.addEventListener('click', (fetchData) => {
             ranImg();
-      });
+sole
+    // let xml = new XMLHttpRequest();
 
-    let xml = new XMLHttpRequest();
+    const fetchData = () => {
+      fetch('https://dog.ceo/api/breeds/image/random')
+        .then(response => {
+          return response.json();
+        })
+    }
 
     //
     const getImg = (img) => {

@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  background-color: violet;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+#button {
+  margin-top: 20px;
+  padding: 20px 80px;
+  background-color: #FFFF99;
+  border: solid #FFFF99;
+}
+
+p {
+  padding: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 34px;
+}
